@@ -1,0 +1,19 @@
+<div class="container d-flex gap-2 flex-column">
+  <h3>Billing Details</h3>
+  <div class="checks d-flex gap-5">
+    <app-checkout-one></app-checkout-one>
+    <app-checkout-two></app-checkout-two>
+  </div>
+</div>
+<span *ngIf="isBuyMessage" #endMessage class="background"></span>
+<div *ngIf="isBuyMessage" class="end-message">
+  <div class="close">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example close icon"
+      fontIcon="close"
+      (click)="close()"
+    ></mat-icon>
+  </div>
+  <app-end-message></app-end-message>
+</div>

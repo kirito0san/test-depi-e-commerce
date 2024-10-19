@@ -1,0 +1,84 @@
+.child > div {
+  width: 48%;
+}
+
+/* .item2 h3 {
+  color: #1f1f1f;
+  font-weight: 700;
+  font-size: 30px;
+} */
+.child p {
+  color: #1f1f1f;
+  font-weight: 400;
+  font-size: 17px;
+}
+.item1 h3 {
+  color: #4c5660 !important;
+  /* font-weight: 700;
+  font-size: 30px; */
+}
+.item1 {
+  color: #4c5660;
+}
+.item2 {
+  background-color: #d7f0f1;
+  overflow: hidden;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.item2 .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.img2 {
+  background-image: url("../../../assets/photo2.webp");
+  background-size: cover;
+  background-position: center;
+}
+.img1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 400px !important;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.child {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+/* Media query for tablets and larger devices */
+@media (max-width: 768px) {
+  .child {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    width: 100%;
+  }
+  .child div {
+    width: 100% !important;
+  }
+  img {
+    width: 300px !important;
+  }
+  .img2 {
+    width: 100%;
+    height: 300px;
+  }
+  .child .text {
+    padding: 20px;
+  }
+}

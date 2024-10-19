@@ -1,0 +1,159 @@
+<nav class="d-flex gap-3 flex-wrap header">
+  <ul class="d-flex gap-3 flex-wrap header-left-small">
+    <li class="d-flex align-items-center">
+      <button aria-label="menu" (click)="dropDown()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20px"
+          viewBox="0 -960 960 960"
+          width="20px"
+          fill="#5f6368"
+        >
+          <path
+            d="M144-264v-72h672v72H144Zm0-180v-72h672v72H144Zm0-180v-72h672v72H144Z"
+          />
+        </svg>
+      </button>
+    </li>
+  </ul>
+
+  <ul
+    class="d-flex gap-3 flex-wrap header-left-large"
+    *ngIf="isDropdownVisible || isDesktop"
+  >
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="active1"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="hideDropdown()"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/products"
+        routerLinkActive="active1"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="hideDropdown()"
+        >Shop</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/Testimonials"
+        routerLinkActive="active1"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="hideDropdown()"
+        >Testimonials</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/About"
+        routerLinkActive="active1"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="hideDropdown()"
+        >About</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/Contact"
+        routerLinkActive="active1"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="hideDropdown()"
+        >Contact</a
+      >
+    </li>
+  </ul>
+  <ul class="d-flex right-icons gap-2 align-items-center flex-wrap">
+    <li (click)="logOut()" *ngIf="logIn">
+      <button aria-label="logOut">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+        >
+          <path
+            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"
+          />
+        </svg>
+      </button>
+    </li>
+    <li *ngIf="!logIn">
+      <a
+        routerLink="/login"
+        routerLinkActive="active2"
+        aria-label="login"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20px"
+          viewBox="0 -960 960 960"
+          width="20px"
+          fill="#5f6368"
+        >
+          <path
+            d="M237-285q54-38 115.5-56.5T480-360q66 0 127.5 18.5T723-285q35-41 52-91t17-104q0-129.67-91.23-220.84-91.23-91.16-221-91.16Q350-792 259-700.84 168-609.67 168-480q0 54 17 104t52 91Zm243-123q-60 0-102-42t-42-102q0-60 42-102t102-42q60 0 102 42t42 102q0 60-42 102t-102 42Zm.28 312Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q52 0 100-16.5t90-48.5q-43-27-91-41t-99-14q-51 0-99.5 13.5T290-233q42 32 90 48.5T480-168Zm0-312q30 0 51-21t21-51q0-30-21-51t-51-21q-30 0-51 21t-21 51q0 30 21 51t51 21Zm0-72Zm0 319Z"
+          /></svg
+      ></a>
+    </li>
+    <li>
+      <a
+        aria-label="cart"
+        routerLink="/cart"
+        routerLinkActive="active2"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20px"
+          viewBox="0 -960 960 960"
+          width="20px"
+          fill="#5f6368"
+        >
+          <path
+            d="M263.79-96Q234-96 213-117.21t-21-51Q192-198 213.21-219t51-21Q294-240 315-218.79t21 51Q336-138 314.79-117t-51 21Zm432 0Q666-96 645-117.21t-21-51Q624-198 645.21-219t51-21Q726-240 747-218.79t21 51Q768-138 746.79-117t-51 21ZM253-696l83 192h301l82-192H253Zm-31-72h570q14 0 20.5 11t1.5 23L702.63-476.14Q694-456 676.5-444T637-432H317l-42 72h493v72H276q-43 0-63.5-36.15-20.5-36.16.5-71.85l52-90-131-306H48v-72h133l41 96Zm114 264h301-301Z"
+          /></svg
+      ></a>
+    </li>
+    <li>
+      <a
+        aria-label="Favorites"
+        routerLink="/Favorites"
+        routerLinkActive="active2"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20px"
+          viewBox="0 -960 960 960"
+          width="20px"
+          fill="#5f6368"
+        >
+          <path
+            d="m480-144-50-45q-100-89-165-152.5t-102.5-113Q125-504 110.5-545T96-629q0-89 61-150t150-61q49 0 95 21t78 59q32-38 78-59t95-21q89 0 150 61t61 150q0 43-14 83t-51.5 89q-37.5 49-103 113.5T528-187l-48 43Zm0-97q93-83 153-141.5t95.5-102Q764-528 778-562t14-67q0-59-40-99t-99-40q-35 0-65.5 14.5T535-713l-35 41h-40l-35-41q-22-26-53.5-40.5T307-768q-59 0-99 40t-40 99q0 33 13 65.5t47.5 75.5q34.5 43 95 102T480-241Zm0-264Z"
+          /></svg
+      ></a>
+    </li>
+    <li class="sreach">
+      <div class="search-container" #searchContainer>
+        <i class="material-icons search-icon" (click)="toggleSearch()"
+          >search</i
+        >
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search..."
+          [class.show]="showInput"
+          [(ngModel)]="searchTerm"
+          #searchInput
+          (keyup.enter)="toggleSearch()"
+        />
+      </div>
+    </li>
+    <ul *ngIf="filteredProducts.length > 0">
+      <li *ngFor="let product of filteredProducts">{{ product.title }}</li>
+    </ul>
+  </ul>
+</nav>

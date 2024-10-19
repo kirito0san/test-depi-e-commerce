@@ -1,0 +1,162 @@
+<div class="parent d-flex gap-5 justify-content-evenly">
+  <div class="photo col-6">
+    <img
+      *ngIf="productDetails"
+      [src]="productDetails.image"
+      alt="{{ productDetails.title }}"
+    />
+  </div>
+  <div *ngIf="productDetails" class="detailes">
+    <div class="data">
+      <h2>{{ productDetails.title }}</h2>
+      <div class="star-parent d-flex gap-5">
+        <div class="stars d-flex">
+          <div>
+            <span
+              *ngFor="
+                let star of [].constructor(
+                  getFullStars(productDetails?.rating?.rate ?? 0)
+                )
+              "
+              class="filled-star"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="rgb(241, 172, 190)"
+              >
+                <path
+                  d="m243-144 63-266L96-589l276-24 108-251 108 252 276 23-210 179 63 266-237-141-237 141Z"
+                />
+              </svg>
+            </span>
+            <span
+              *ngIf="hasHalfStar(productDetails?.rating?.rate ?? 0)"
+              class="half-star"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="rgb(241, 172, 190)"
+              >
+                <path
+                  d="m609-293-34-144 111-95-147-13-59-137v313l129 76ZM243-144l63-266L96-589l276-24 108-251 108 252 276 23-210 179 63 266-237-141-237 141Z"
+                />
+              </svg>
+            </span>
+            <span
+              *ngFor="
+                let emptyStar of [].constructor(
+                  getEmptyStars(productDetails?.rating?.rate ?? 0)
+                )
+              "
+              class="empty-star"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="rgb(241, 172, 190)"
+              >
+                <path
+                  d="m352-293 128-76 129 76-34-144 111-95-147-13-59-137-59 137-147 13 112 95-34 144ZM243-144l63-266L96-589l276-24 108-251 108 252 276 23-210 179 63 266-237-141-237 141Zm237-333Z"
+                />
+              </svg>
+            </span>
+          </div>
+          <p class="rating-count">
+            ({{ productDetails.rating?.count }}) Reviews
+          </p>
+        </div>
+        <p *ngIf="productDetails.rating?.count! > 0" class="stock availability">
+          In Stock
+        </p>
+        <p
+          *ngIf="productDetails?.rating?.count === 0"
+          class="out-Stock availability"
+        >
+          Out Of Stock
+        </p>
+        <p
+          *ngIf="productDetails?.rating?.count === 1"
+          class="last availability"
+        >
+          Last One
+        </p>
+      </div>
+      <h4>{{ productDetails.price | currency }}</h4>
+      <p class="desc">{{ productDetails.description }}</p>
+    </div>
+    <hr />
+    <div class="choosing">
+      <div class="quantity d-flex gap-3">
+        <div class="counter">
+          <button class="counter-btn" (click)="decrease()">-</button>
+          <span>{{ quantity }}</span>
+          <button class="counter-btn" (click)="increase(productDetails)">
+            +
+          </button>
+        </div>
+        <button (click)="buyNow()" class="buy">Buy Now</button>
+        <button
+          class="favorite"
+          [ngClass]="{ favorited: isFavorites }"
+          (click)="toggleFavorite()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="20px"
+            viewBox="0 -960 960 960"
+            width="20px"
+            fill="#5f6368"
+          >
+            <path
+              d="m480-144-50-45q-100-89-165-152.5t-102.5-113Q125-504 110.5-545T96-629q0-89 61-150t150-61q49 0 95 21t78 59q32-38 78-59t95-21q89 0 150 61t61 150q0 43-14 83t-51.5 89q-37.5 49-103 113.5T528-187l-48 43Zm0-97q93-83 153-141.5t95.5-102Q764-528 778-562t14-67q0-59-40-99t-99-40q-35 0-65.5 14.5T535-713l-35 41h-40l-35-41q-22-26-53.5-40.5T307-768q-59 0-99 40t-40 99q0 33 13 65.5t47.5 75.5q34.5 43 95 102T480-241Zm0-264Z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="purchase d-flex flex-column gap-4">
+      <div class="delivary d-flex gap-3 align-items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="30px"
+          viewBox="0 -960 960 960"
+          width="30px"
+          fill="#5f6368"
+        >
+          <path
+            d="M240-160q-50 0-85-35t-35-85H40v-440q0-33 23.5-56.5T120-800h560v160h120l120 160v200h-80q0 50-35 85t-85 35q-50 0-85-35t-35-85H360q0 50-35 85t-85 35Zm0-80q17 0 28.5-11.5T280-280q0-17-11.5-28.5T240-320q-17 0-28.5 11.5T200-280q0 17 11.5 28.5T240-240ZM120-360h32q17-18 39-29t49-11q27 0 49 11t39 29h272v-360H120v360Zm600 120q17 0 28.5-11.5T760-280q0-17-11.5-28.5T720-320q-17 0-28.5 11.5T680-280q0 17 11.5 28.5T720-240Zm-40-200h170l-90-120h-80v120ZM360-540Z"
+          />
+        </svg>
+        <div class="text">
+          <p class="text-1 mb-0">Free Delivery</p>
+          <a href="" class="small">Enter your coupon code</a>
+        </div>
+      </div>
+      <div class="return d-flex gap-3 align-items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#5f6368"
+        >
+          <path
+            d="M482-160q-134 0-228-93t-94-227v-7l-64 64-56-56 160-160 160 160-56 56-64-64v7q0 100 70.5 170T482-240q26 0 51-6t49-18l60 60q-38 22-78 33t-82 11Zm278-161L600-481l56-56 64 64v-7q0-100-70.5-170T478-720q-26 0-51 6t-49 18l-60-60q38-22 78-33t82-11q134 0 228 93t94 227v7l64-64 56 56-160 160Z"
+          />
+        </svg>
+        <div class="text">
+          <p class="text-1 mb-0">Return Delivery</p>
+          <p class="small mb-1">Free 30 Days Delivery Returns. Details</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="box">
+    <div class="box-1">
+      <div class="parent-1">
+        <label for="name">Name</label>
+        <p>{{ BuyForm.controls["name"].value }}</p>
+      </div>
+
+      <div class="parent-2">
+        <label for="address">Address</label>
+        <p>
+          {{
+            BuyForm.controls["address"].value +
+              " / " +
+              BuyForm.controls["apartment"].value
+          }}
+        </p>
+      </div>
+
+      <div class="parent-3">
+        <label for="phone">Phone Number</label>
+        <p>{{ BuyForm.controls["phone"].value }}</p>
+      </div>
+
+      <div class="parent-4">
+        <label for="email">Email Address</label>
+        <p>{{ BuyForm.controls["email"].value }}</p>
+      </div>
+    </div>
+    <div class="box-2 d-flex gap-3">
+      <span class="total">Total:</span>
+      <span class="total-price">{{ totalCartCost | currency }}</span>
+    </div>
+  </div>
+
+  <div class="conatiner-1">
+    <div class="content-1">
+      <img src="assets/endMessage.webp" alt="Description of image" />
+    </div>
+
+    <div class="parent-product">
+      <h2>Your Hugs</h2>
+      <div *ngFor="let item of userCart" class="product">
+        <div class="product-info">
+          <img [src]="item.image" alt="LCD Monitor" />
+          <span>{{ item.title }}</span>
+        </div>
+        <div class="product-price">
+          <span class="bordered-div">{{ item.quantity }}</span>
+          <span class="bordered-div">{{ item.price | currency }}</span>
+          <span class="bordered-div">{{
+            item.quantity * item.price | currency
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

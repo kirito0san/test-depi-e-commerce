@@ -1,0 +1,7 @@
+.parent {
+  width: 90%;
+  padding: 10px 0;
+}
+.main {
+  min-height: calc(100vh - 70px - 20px - 336px);
+}

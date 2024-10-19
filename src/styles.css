@@ -1,0 +1,44 @@
+html,
+body {
+  height: 100%;
+  background-color: #fef7f9;
+  scroll-behavior: auto !important;
+}
+body {
+  margin: 0;
+  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+  font-family: Roboto, sans-serif;
+  font-display: swap;
+}
+:root {
+  /* Material Warn Color */
+}
+
+button span.carousel-control-next-icon {
+  background-color: #f191ab !important ;
+  position: absolute;
+  right: 0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-size: 25px 16px;
+}
+
+button span.carousel-control-prev-icon {
+  background-color: #f191ab !important ;
+  position: absolute;
+  left: 0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-size: 25px 16px;
+}
+
+.carousel-control-next,
+.carousel-control-prev{
+width: 0;
+}

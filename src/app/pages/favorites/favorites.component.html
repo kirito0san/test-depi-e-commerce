@@ -1,0 +1,55 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="header">
+    <h3>Discover your saved treasures!</h3>
+  </div>
+  <div class="d-flex flex-wrap gap-5 justify-content-evenly py-5">
+    <div class="d-flex flex-wrap gap-5 justify-content-evenly">
+      <div
+        *ngFor="let item of favorites"
+        class="example-card d-flex shadow-lg flex-column gap-2 justify-content-around"
+        appearance="outlined"
+      >
+        <button
+          (click)="deleteFavorites(item.id)"
+          class="delete d-flex align-items-center justify-content-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="20px"
+            viewBox="0 -960 960 960"
+            width="20px"
+            fill="#5f6368"
+          >
+            <path
+              d="M312-144q-29.7 0-50.85-21.15Q240-186.3 240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186 698.85-165T648-144H312Zm336-552H312v480h336v-480ZM384-288h72v-336h-72v336Zm120 0h72v-336h-72v336ZM312-696v480-480Z"
+            />
+          </svg>
+        </button>
+        <div (click)="goToProductDetails(item.id)" class="img-holder">
+          <img
+            mat-card-image
+            class="img-product"
+            [src]="item.image"
+            alt="Photo of a Shiba Inu"
+          />
+        </div>
+        <div class="card-data">
+          <h2 (click)="goToProductDetails(item.id)">{{ item.title }}</h2>
+          <h5 class="price">{{ item.price }} EGP</h5>
+          <div class="d-flex flex-column justify-content-center gap-3">
+            <div (click)="AddToCart(item)" class="btn add-cart">
+              <p>Add to cart</p>
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Example shopping_cart icon"
+                fontIcon="shopping_cart"
+              ></mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="empty" *ngIf="favorites?.length === 0">No results found!</div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<h2 class="text-center">Login</h2>
+<form
+  class="container p-3 border"
+  [formGroup]="signupForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input
+      placeholder="example@gmail.com"
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+      required
+      email
+    />
+    <div
+      *ngIf="
+        signupForm.get('email')?.invalid && signupForm.get('email')?.touched
+      "
+      class="alert"
+    >
+      *Invalid email format.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      placeholder="******"
+      class="form-control"
+      id="password"
+      formControlName="password"
+      required
+      minlength="6"
+    />
+    <div
+      *ngIf="
+        signupForm.get('password')?.invalid &&
+        signupForm.get('password')?.touched
+      "
+      class="alert"
+    >
+      *must be at least 6 characters.
+    </div>
+  </div>
+  <button
+    [attr.type]="signupForm.invalid ? 'button' : 'submit'"
+    class="btn align-self-center"
+    [ngClass]="{
+      'inactive-btn': signupForm.invalid,
+      active: !signupForm.invalid
+    }"
+  >
+    LogIn
+  </button>
+</form>
+<div class="container d-flex justify-content-center">
+  <a
+    routerLink="/signup"
+    class="u-have-account text-capitalize text-center py-3"
+  >
+    you dont have account ?</a
+  >
+</div>

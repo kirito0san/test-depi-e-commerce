@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="parent">
+    <nav>
+      <ul>
+        <li><p>Product</p></li>
+        <li><p>Price</p></li>
+        <li><p>Quantity</p></li>
+        <li><p>Subtotal</p></li>
+      </ul>
+    </nav>
+    <div *ngFor="let item of userCart" class="box">
+      <button
+        (click)="deleteCart(item.id)"
+        class="delete d-flex align-items-center justify-content-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20px"
+          viewBox="0 -960 960 960"
+          width="20px"
+          fill="#5f6368"
+        >
+          <path
+            d="M312-144q-29.7 0-50.85-21.15Q240-186.3 240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186 698.85-165T648-144H312Zm336-552H312v480h336v-480ZM384-288h72v-336h-72v336Zm120 0h72v-336h-72v336ZM312-696v480-480Z"
+          />
+        </svg>
+      </button>
+      <div class="box-4">
+        <img [src]="item.image" alt="" />
+        <span>{{ item.title }}</span>
+      </div>
+      <div>
+        <span>{{ item.price | currency }}</span>
+      </div>
+      <div class="box-3">
+        <input
+          [value]="item.quantity"
+          (change)="quantity(data, item)"
+          type="number"
+          placeholder="0"
+          #data
+        />
+      </div>
+      <div class="box-3">
+        <span>{{ item.price * item.quantity | currency }}</span>
+      </div>
+    </div>
+    <div class="box-2">
+      <a routerLink="/products" class="btn btn-light">Back To Shop</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="coupon">
+      <input
+        type="text"
+        #Coupon
+        [value]="getAppliedCoupon"
+        placeholder="Coupon Code"
+      />
+      <button (click)="activeCoupon(Coupon)">Apply Coupon</button>
+    </div>
+    <div class="cart">
+      <div class="cart-total gap-2">
+        <h2>Cart Total</h2>
+        <br />
+        <div class="total-item">
+          <span>Subtotal:</span>
+          <span>{{ this.totalCartCost | currency }}</span>
+        </div>
+        <hr />
+        <div class="total-item">
+          <span>Shipping:</span>
+          <span>{{ couponIsActive ? "Free" : ("50" | currency) }}</span>
+        </div>
+        <hr />
+        <div class="total-item">
+          <span>Total:</span>
+          <span>{{
+            (couponIsActive ? this.totalCartCost : this.totalCartCost + 50)
+              | currency
+          }}</span>
+        </div>
+        <a routerLink="/CheckOut" class="mt-4">Proceed to checkout</a>
+      </div>
+    </div>
+  </div>
+</div>

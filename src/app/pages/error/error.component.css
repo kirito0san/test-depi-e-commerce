@@ -1,0 +1,47 @@
+/* .bg{
+  background-image: url('/assets/—Pngtree—error\ 404\ page\ not\ found_6681621.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+} */
+
+div{
+  /* display: contents; */
+
+}
+
+img{
+  width: 70%;
+  height: 65vh;
+  margin-top: -5rem;
+}
+
+button{
+  background-color: #D9E2F0;
+  color: #666666;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: 1px solid #8fabd4;
+  border-radius: 5px;
+  max-width: 11rem;
+  margin-top: -3rem;
+}
+
+button:hover{
+  opacity: 0.8;
+}
+
+@media(max-width:768px){
+  button{
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media(max-width:500px){
+  button{
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+  }
+}
+

@@ -1,0 +1,248 @@
+.parent {
+  width: 95%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .parent {
+    flex-flow: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.photo {
+  max-height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo img {
+  width: 350px;
+  height: 350px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media (max-width: 768px) {
+  .photo {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+  .photo img {
+    width: 300px;
+    height: 300px;
+    max-width: 80%;
+    max-height: 80%;
+  }
+}
+
+/* Start Handling Rating Stars */
+.filled-star {
+  color: rgb(241, 172, 190);
+}
+
+.empty-star {
+  color: rgb(241, 172, 190);
+}
+
+.stars span svg {
+  fill: #ffad33;
+}
+
+.stars {
+  gap: 0.4rem;
+}
+
+@media (max-width: 842px) {
+  .star-parent {
+    gap: 2rem !important;
+  }
+}
+
+.rating-count {
+  color: darkgray;
+  position: relative;
+}
+
+.rating-count::after {
+  content: "";
+  background-color: darkgrey;
+  position: absolute;
+  top: 0px;
+  left: 121px;
+  width: 1px;
+  height: 25px;
+}
+
+.stock {
+  color: #4ab0ad;
+}
+
+.last {
+  color: #f2bd03;
+}
+
+.out-Stock {
+  color: red;
+}
+
+.availability {
+  margin-bottom: 0.5rem;
+}
+/* ------------------End Handling Rating Stars---------------------- */
+.desc {
+  line-height: 19px;
+}
+
+/* Start Counter & Buy Button */
+.quantity {
+  margin-top: -7px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+}
+
+.counter span {
+  padding: 4px 20px;
+  font-size: 18px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.counter-btn,
+.buy {
+  background-color: #ff6584;
+  color: white;
+  border: none;
+  padding: 5px 1.5rem;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.buy {
+  border-radius: 4px;
+  padding: 4px 2rem;
+}
+
+@media (max-width: 972px) {
+  .counter-btn,
+  .buy {
+    padding: 5px 1rem;
+  }
+}
+
+@media (max-width: 827px) {
+  .counter-btn {
+    padding: 5px 0.9rem;
+  }
+  .buy {
+    padding: 5px 1.2rem;
+  }
+  .counter span {
+    padding: 5px 1rem;
+  }
+}
+
+.counter-btn:active,
+.buy:active,
+.favorite:active {
+  opacity: 0.8;
+}
+/* ------------------------End Counter & Buy Button------------------------- */
+.favorite {
+  background-color: transparent;
+  border: 1px solid lightgrey;
+  padding: 0 8px;
+  border-radius: 5px;
+}
+
+.favorite:hover {
+  background-color: #ff6584;
+}
+
+.favorite:hover svg {
+  fill: white;
+}
+
+button.favorited {
+  background-color: #ff6584;
+}
+
+button.favorited svg {
+  fill: white;
+}
+/* ------------------------------------------------------- */
+/* Start purchase */
+.purchase {
+  position: relative;
+  border: 1px solid darkgrey;
+  margin-top: 32px;
+  padding: 18px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .purchase {
+    max-width: 18.5rem;
+  }
+}
+
+.purchase::after {
+  content: "";
+  background-color: darkgrey;
+  position: absolute;
+  top: 72px;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+}
+
+.text-1 {
+  font-weight: 500;
+  line-height: 1.2rem;
+}
+
+.small {
+  color: inherit;
+}
+
+@media (max-width: 920px) {
+  .small {
+    font-size: 12px;
+    color: inherit !important;
+  }
+}
+
+@media (max-width: 831px) {
+  .small {
+    font-size: 10px;
+  }
+}
+@media (max-width: 400px) {
+  .buy {
+    font-size: 14px;
+  }
+}
+/* --------------------------------End purchase------------------------ */

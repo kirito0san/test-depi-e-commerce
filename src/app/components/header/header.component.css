@@ -1,0 +1,155 @@
+.header {
+  background-color: #f9ece6;
+  justify-content: space-between;
+  padding: 20px;
+  height: 70px;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  z-index: 100;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #575753;
+  position: relative;
+}
+
+li {
+  transition: 0.2s;
+}
+
+.right-icons a,
+.right-icons div,
+.right-icons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-icons i,
+.right-icons button svg {
+  width: 20px;
+  height: 20px;
+}
+.right-icons button svg {
+  fill: #575753;
+}
+.right-icons button {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+li:not(.sreach):hover {
+  transform: translateY(-3px);
+  -webkit-transform: translateY(-3px);
+  -moz-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  -o-transform: translateY(-3px);
+}
+.sreach i {
+  transition: 0.2s;
+}
+
+.sreach:hover i {
+  transform: translateY(-3px);
+}
+
+.active1 {
+  background-color: #f5f5f5;
+  padding: 10px 10px;
+  border-radius: 6px;
+  color: #0f7c79;
+}
+
+.active2 {
+  background-color: #f5f5f5;
+  padding: 5px 5px;
+  border-radius: 50%;
+}
+
+.active2 svg {
+  fill: #0f7c79;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px;
+  }
+  .header-left-large {
+    flex-flow: column wrap;
+    position: absolute;
+    left: 0px;
+    top: 70px;
+    background-color: #eee;
+    gap: 5px !important;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .header-left-large a {
+    padding: 5px 35px;
+    width: 100%;
+    display: block;
+  }
+
+  .header-left-large li {
+    padding: 0;
+  }
+
+  .active1 {
+    background-color: #0f7c79;
+    color: white;
+  }
+
+  .header-left-large li:hover {
+    background-color: #f5f5f5 !important;
+  }
+  .header-left-small button {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .header-left-small {
+    display: none !important;
+  }
+}
+
+/*Start Search input */
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.search-icon {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.search-input {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  padding: 5px;
+  border: 1px solid #0f7c79;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+}
+
+.search-input.show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+/*----------------------End Search input-------------------------- */

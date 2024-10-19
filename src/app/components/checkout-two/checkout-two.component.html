@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="order-form">
+    <!-- product -->
+    <div class="parent-product">
+      <div *ngFor="let item of userCart" class="product">
+        <div class="product-info">
+          <img [src]="item.image" alt="LCD Monitor" />
+          <span>{{ item.title }}</span>
+        </div>
+        <div class="spans">
+          <span class="bordered-div">{{ item.quantity }}</span>
+          <span class="bordered-div">{{ item.price | currency }}</span>
+          <span class="bordered-div">{{
+            item.quantity * item.price | currency
+          }}</span>
+        </div>
+      </div>
+    </div>
+    <!-- cart -->
+    <div class="cart">
+      <div class="total-item">
+        <span>Subtotal:</span>
+        <span>{{ subtotal | currency }}</span>
+      </div>
+      <hr />
+      <div class="total-item">
+        <span>Shipping:</span>
+        <span>{{ couponIsActive ? "Free" : ("50" | currency) }}</span>
+      </div>
+      <hr />
+      <div class="total-item">
+        <span>Total:</span>
+        <span>{{
+          (couponIsActive ? this.subtotal : this.subtotal + 50) | currency
+        }}</span>
+      </div>
+    </div>
+    <!-- payment options-->
+    <div class="payment-options">
+      <div class="options">
+        <div class="option">
+          <input checked type="radio" name="payment" id="bank" />
+          <label for="bank">Bank</label>
+        </div>
+        <div class="option">
+          <input type="radio" name="payment" id="cash" />
+          <label for="cash">Cash on delivery</label>
+        </div>
+      </div>
+      <div class="logos">
+        <!-- <img src="assets/img1.webp" alt="ikash" /> -->
+        <svg>
+          <use href="/assets/kash.svg"></use>
+        </svg>
+        <img src="/assets/kash.svg" alt="ikash" />
+        <!-- <img src="assets/img2.webp" alt="visa" /> -->
+        <img src="/assets/visa.svg" alt="visa" />
+        <!-- <img src="assets/img3.webp" alt="mastercard" /> -->
+        <img src="/assets/mastercard.svg" alt="mastercard" />
+        <!-- <img src="assets/img4.webp" alt="nogod" /> -->
+        <img src="/assets/nagad2.svg" alt="nogod" />
+      </div>
+    </div>
+    <!-- coupon  -->
+    <!-- Place Order button -->
+    <button (click)="onSubmit()" class="place-order">Place Order</button>
+  </div>
+</div>

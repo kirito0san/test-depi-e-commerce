@@ -1,0 +1,104 @@
+<h2 class="text-center">Register</h2>
+<form
+  class="container p-3 border"
+  [formGroup]="signupForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      placeholder="Full Name"
+      class="form-control"
+      id="name"
+      formControlName="name"
+      required
+    />
+    <div
+      *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched"
+      class="alert"
+    >
+      *Name is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input
+      placeholder="example@gmail.com"
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+      required
+      email
+    />
+    <div
+      *ngIf="
+        signupForm.get('email')?.invalid && signupForm.get('email')?.touched
+      "
+      class="alert"
+    >
+      *Invalid email format.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      placeholder="******"
+      class="form-control"
+      id="password"
+      formControlName="password"
+      required
+      minlength="6"
+    />
+    <div
+      *ngIf="
+        signupForm.get('password')?.invalid &&
+        signupForm.get('password')?.touched
+      "
+      class="alert"
+    >
+      *must be at least 6 characters.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="number">Phone Number:</label>
+    <input
+      placeholder="ex 0111789165"
+      type="tel"
+      class="form-control"
+      id="number"
+      formControlName="number"
+      required
+      pattern="[0-9]+"
+      maxlength="11"
+    />
+    <div
+      *ngIf="
+        signupForm.get('number')?.invalid && signupForm.get('number')?.touched
+      "
+      class="alert"
+    >
+      *Invalid phone number format.
+    </div>
+  </div>
+  <button
+    [attr.type]="signupForm.invalid ? 'button' : 'submit'"
+    class="btn align-self-center"
+    [ngClass]="{
+      'inactive-btn': signupForm.invalid,
+      active: !signupForm.invalid
+    }"
+  >
+    Sign Up
+  </button>
+</form>
+<div class="container d-flex justify-content-center">
+  <a routerLink="/login" class="u-have-account text-capitalize text-center py-3"
+    >already you have one ?</a
+  >
+</div>

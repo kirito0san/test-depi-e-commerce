@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="columns">
+    <div class="col-one">
+      <p class="h5">Bears Hugs</p>
+      <p class="p-h6">Subscribe</p>
+      <p class="p-h6">Get 10% Off Your First Order</p>
+      <div class="input">
+        <input type="text" [(ngModel)]="email" placeholder="Enter Your Email" />
+        <svg
+          (click)="sendEmail()"
+          xmlns=" http://www.w3.org/2000/svg"
+          height="40px"
+          viewBox="0 -960 960 960"
+          width="20px"
+          fill="#5f6368"
+        >
+          <path
+            d="M146.67-160q-27 0-46.84-19.83Q80-199.67 80-226.67v-506.66q0-27 19.83-46.84Q119.67-800 146.67-800h666.66q27 0 46.84 19.83Q880-760.33 880-733.33v506.66q0 27-19.83 46.84Q840.33-160 813.33-160H146.67ZM480-454.67 146.67-670v443.33h666.66V-670L480-454.67Zm0-66.66 330.67-212H150l330 212ZM146.67-670v-63.33V-226.67-670Z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="col-two">
+      <p class="h5">Support</p>
+      <p>
+        111 Bijoy Sanari, Dhaka,<br />
+        DH 1515, Bangladesh.
+      </p>
+      <p>
+        <a
+          aria-label="mail us"
+          href="mailto:BearsHugs@gmail.com?subject=Add Yor Subject&body=Add Your Message!"
+          >BearHugs&#64;gmail.com</a
+        >
+      </p>
+      <p>+11222333598</p>
+    </div>
+    <div class="col-three">
+      <p class="h5">Account</p>
+      <p><a aria-label="login" routerLink="/login">Login</a></p>
+      <p><a aria-label="cart" routerLink="/cart">Cart</a></p>
+      <p><a aria-label="signup" routerLink="/signup">Register</a></p>
+      <p><a aria-label="Favorites" routerLink="Favorites">Favorite</a></p>
+    </div>
+    <div class="col-four">
+      <p class="h5">Quick Link</p>
+      <p><a routerLink="/products">Shop</a></p>
+      <p><a routerLink="/Contact">Contact</a></p>
+    </div>
+    <div class="col-five">
+      <div class="img"></div>
+      <div class="social">
+        <a aria-label="facebook" href="https://www.facebook.com/">
+          <img src="assets/Icon-Facebook.svg" alt="" />
+        </a>
+        <a aria-label="instagram" href="https://www.instagram.com/">
+          <img src="assets/icon-instagram.svg" alt="" />
+        </a>
+        <a aria-label="linkedin" href="https://eg.linkedin.com"
+          ><img src="assets/Icon-Linkedin.svg" alt=""
+        /></a>
+        <a aria-label="twitter" href="https://www.twitter.com/">
+          <img src="assets/icons-twitter.svg" alt=""
+        /></a>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="copyright">
+    &copy; Copyright Rimel {{ currentYear }}. All Rights Reserved.
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div>
+  <form [formGroup]="form" class="form-group d-flex flex-column">
+    <label for="name">First Name<span>*</span></label>
+    <input id="name" formControlName="name" type="text" minlength="3" />
+    <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+      <span *ngIf="form.get('name')?.errors?.['required']"
+        >Name is required.</span
+      >
+      <span *ngIf="form.get('name')?.errors?.['pattern']"
+        >Only letters and spaces allowed.</span
+      >
+      <span *ngIf="form.get('name')?.errors?.['minlength']"
+        >Name must be at least 3 characters long.</span
+      >
+    </div>
+    <label for="adress">Street Adress<span>*</span></label>
+    <input id="adress" type="text" formControlName="address" />
+    <div *ngIf="form.get('address')?.invalid && form.get('address')?.touched">
+      <span *ngIf="form.get('address')?.errors?.['required']"
+        >Address is required.</span
+      >
+      <span *ngIf="form.get('address')?.errors?.['minlength']"
+        >Address must be at least 10 characters long.</span
+      >
+    </div>
+    <label for="apartment">Apartment, floor, etc. (optional)</label>
+    <input id="apartment" type="text" formControlName="apartment" />
+    <label for="city" required>Town/City<span>*</span></label>
+    <select formControlName="city" id="city">
+      <option value="" disabled selected></option>
+      <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+    </select>
+    <div *ngIf="form.get('city')?.invalid && form.get('city')?.touched">
+      <span *ngIf="form.get('city')?.errors?.['required']"
+        >City is required.</span
+      >
+    </div>
+    <label for="phone">Phone Number<span>*</span></label>
+    <input id="phone" formControlName="phone" type="tel" />
+    <div *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched">
+      <span *ngIf="form.get('phone')?.errors?.['required']"
+        >Phone number is required.</span
+      >
+      <span *ngIf="form.get('phone')?.errors?.['pattern']"
+        >Phone number must be exactly 11 digits.</span
+      >
+    </div>
+    <label for="email">Email Address<span>*</span></label>
+    <input id="email" type="email" formControlName="email" />
+    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      <span *ngIf="form.get('email')?.errors?.['required']"
+        >Email is required.</span
+      >
+      <span *ngIf="form.get('email')?.errors?.['email']"
+        >Please enter a valid email.</span
+      >
+    </div>
+  </form>
+</div>
